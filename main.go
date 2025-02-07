@@ -37,14 +37,7 @@ func contactHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func faqHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	fmt.Fprint(w, `<h1>FAQ Page</h1>
-<ul>	
- <li><b>Abrakadabra?</b> Yes, there is!</li>
- <li><b>Which came first: the chicken or the egg?</b> T-Rex!</li>
- <li><b>How do I contact support?</b> Email us - <a href="mailto:"pivojoppin@gmail.com">pivojoppin@gmail.com</a></li>	
-</ul>
-`)
+	executeTemplate(w, filepath.Join("templates", "faq.gohtml"))
 }
 
 func main() {
