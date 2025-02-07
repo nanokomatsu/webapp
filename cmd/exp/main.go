@@ -1,21 +1,13 @@
 package main
 
 import (
-	"fmt"
 	"html/template"
 	"os"
 )
 
 type User struct {
 	Name string
-	Age  int
-	Meta struct {
-		Visits int
-	}
-}
-
-type UserMeta struct {
-	Visits int
+	Bio  string
 }
 
 func main() {
@@ -24,27 +16,10 @@ func main() {
 		panic(err)
 	}
 
-	// user := User{
-	// 	Name: "Rusty Shackleford",
-	// }
-
-	// user := struct {
-	// 	Name string
-	// 	Age  int
-	// }{
-	// 	Name: "John Redcorn",
-	// 	Age:  40,
-	// }
-
 	user := User{
 		Name: "Bobby Hill",
-		Age:  13,
-		Meta: UserMeta{
-			Visits: 6,
-		},
+		Bio:  `<script>alert("Hehe, you have been h4x0r3d!");</script>`,
 	}
-
-	fmt.Println(user.Meta.Visits)
 
 	err = t.Execute(os.Stdout, user)
 	if err != nil {
