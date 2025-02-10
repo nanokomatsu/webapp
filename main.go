@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"path/filepath"
 
+	"calhoun-basic/templates"
+
 	"github.com/go-chi/chi/v5"
 	"github.com/vixart/lenslocked/controllers"
 	"github.com/vixart/lenslocked/views"
@@ -13,7 +15,7 @@ import (
 func main() {
 	r := chi.NewRouter()
 
-	r.Get("/", controllers.StaticHandler(views.Must(views.Parse(filepath.Join("templates", "home.gohtml")))))
+	r.Get("/", controllers.StaticHandler(views.Must(views.ParseFS(templates.FS, "home.gohtml"))))
 
 	r.Get("/contact", controllers.StaticHandler(views.Must(views.Parse(filepath.Join("templates", "contact.gohtml")))))
 
