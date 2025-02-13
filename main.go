@@ -6,9 +6,11 @@ import (
 
 	"calhoun-basic/templates"
 
+	"calhoun-basic/controllers"
+
+	"calhoun-basic/views"
+
 	"github.com/go-chi/chi/v5"
-	"github.com/vixart/lenslocked/controllers"
-	"github.com/vixart/lenslocked/views"
 )
 
 func main() {
